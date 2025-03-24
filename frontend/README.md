@@ -1,70 +1,136 @@
-# Getting Started with Create React App
+# Notebook Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a full-stack web application for managing notes. Users can create, edit, delete, and search for notes. The application also supports user authentication and profile management.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- User authentication (Sign Up, Login)
+- Create, edit, and delete notes
+- Mark notes as important
+- Search notes by title, description, or content
+- User profile with note statistics
+- Responsive design using Tailwind CSS
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Frontend
+- React.js
+- Tailwind CSS
+- React Router DOM
+- Jodit React (Rich Text Editor)
+- HTML React Parser
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Backend
+- Node.js
+- Express.js
+- MongoDB (Mongoose for ORM)
+- JSON Web Tokens (JWT) for authentication
+- Bcrypt.js for password hashing
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
+- Node.js and npm installed
+- MongoDB installed and running locally
 
-### `npm run build`
+### Clone the Repository
+```bash
+git clone <repository-url>
+cd notebook
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Install Dependencies
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Frontend
+```bash
+cd frontend
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Backend
+```bash
+cd backend
+npm install
+```
 
-### `npm run eject`
+## Running the Application
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Start the Backend
+```bash
+cd backend
+npx nodemon
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The backend will run on `http://localhost:8000`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Start the Frontend
+```bash
+cd frontend
+npm start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The frontend will run on `http://localhost:3000`.
 
-## Learn More
+## Folder Structure
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Frontend
+- `src/components`: Reusable React components (e.g., Navbar, Note, Oops)
+- `src/pages`: Pages for routing (e.g., Home, Login, Profile)
+- `src/tools`: Utility components (e.g., CheckBox)
+- `src/index.js`: Entry point for the React app
+- `tailwind.config.js`: Tailwind CSS configuration
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Backend
+- `models`: Mongoose models for MongoDB (e.g., User, Notes)
+- `routes`: API routes (e.g., user authentication, note management)
+- `app.js`: Main server file
 
-### Code Splitting
+## API Endpoints
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### User Authentication
+- `POST /signUp`: Register a new user
+- `POST /login`: Login an existing user
+- `POST /getUserDetails`: Fetch user details
 
-### Analyzing the Bundle Size
+### Notes Management
+- `POST /getNotes`: Fetch all notes for a user
+- `POST /addNote`: Add a new note
+- `POST /updateNote`: Update an existing note
+- `POST /deleteNote`: Delete a note
+- `POST /getNote`: Fetch a single note by ID
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Environment Variables
 
-### Making a Progressive Web App
+The backend connects to MongoDB using the default local connection string. Update the connection string in `models/userModel.js` and `models/noteModel.js` if needed.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Testing
 
-### Advanced Configuration
+### Frontend
+Run the following command to execute tests:
+```bash
+cd frontend
+npm test
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Backend
+Use tools like Postman or cURL to test API endpoints.
 
-### Deployment
+## Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1. Build the frontend:
+   ```bash
+   cd frontend
+   npm run build
+   ```
+2. Deploy the `frontend/build` folder and the backend server to your hosting platform.
 
-### `npm run build` fails to minify
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License.
+
+## Acknowledgments
+
+- [React](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Express](https://expressjs.com/)
+- [MongoDB](https://www.mongodb.com/)
